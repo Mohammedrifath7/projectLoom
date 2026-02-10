@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../SignUp/Signup.css"
+import styles from "./Signup.module.css"
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -24,19 +24,19 @@ const Signup = () => {
   };
 
   return (
-    <div className="auth-bg">
-      <div className="auth-card">
+    <div className={styles["auth-bg"]}>
+      <div className={styles["auth-card"]}>
 
         {/* Logo */}
-        <div className="logo">
-          <div className="logo-icon">P</div>
+        <div className={styles["logo"]}>
+          <div className={styles["logo-icon"]}>P</div>
           <div>
             <h1>Power<span>Loom</span></h1>
             <p>Spares Hub</p>
           </div>
         </div>
 
-        <h2 className="auth-title">Sign Up</h2>
+        <h2 className={styles["auth-title"]}>Sign Up</h2>
 
         <form onSubmit={handleSubmit}>
           <input
@@ -82,7 +82,7 @@ const Signup = () => {
           <button type="submit">Register</button>
         </form>
 
-        <p className="auth-footer">
+        <p className={styles["auth-footer"]}>
           Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>

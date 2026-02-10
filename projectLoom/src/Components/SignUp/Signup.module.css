@@ -1,7 +1,7 @@
 
 .auth-bg {
   /* min-height: 100vh; */
-  /* height: 50vh; */
+  height: 100vh;
   background: linear-gradient(135deg, #e6f1fb, #f4f9ff);
   display: flex;
   align-items: center;
@@ -13,10 +13,13 @@
 
 .auth-card {
   width: 420px;
-  
+  padding-left:40px;
+  padding-right:60px;
+  padding-bottom:40px;
+  padding-top:40px;
   background: #ffffff;
   border-radius: 18px;
-  padding: 40px;
+  
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -85,7 +88,7 @@
 }
 
 .auth-card button {
-  width: 100%;
+  width: 447px;
   background: #1e73be;
   color: white;
   border: none;
