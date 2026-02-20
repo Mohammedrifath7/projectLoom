@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 
 
@@ -46,6 +46,7 @@ const products = [
 ];
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
 
@@ -60,13 +61,13 @@ const ProductDetails = () => {
 
       {/* Header */}
       <header className="pd-header">
-        <div className="pd-logo">
-          <img src="/asset/logo.png" alt="logo" />
-          <div>
-            <h1>PowerLoom</h1>
-            <p>Spares Hub</p>
-          </div>
+        <div className="logo" onClick={() => navigate("/products")}>
+          <h1 className="logo-title">
+            POWER<span>LOOM</span>
+          </h1>
+          <p className="logo-sub">SPARES HUB</p>
         </div>
+        
 
         <input className="pd-search" placeholder="Search for products..." />
 

@@ -16,12 +16,28 @@
 
 .logo {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.logo img {
-  width: 45px;
+.logo-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+  color: #1e293b;   /* dark slate */
+}
+
+.logo-title span {
+  color: #16a34a;   /* green highlight */
+}
+
+.logo-sub {
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin: 0;
+  color: #64748b;
 }
 
 .search {

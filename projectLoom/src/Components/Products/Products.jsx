@@ -41,8 +41,11 @@ const Products = () => {
 
       {/* Header */}
       <header className="top-bar">
-        <div className="logo">
-          <img src=".././asset/logo.png" alt="logo" />
+        <div className="logo" onClick={ () => navigate("/cart") }>
+          <h1 className="logo-title">
+            POWER<span>LOOM</span>
+          </h1>
+          <p className="logo-sub">SPARES HUB</p>
         </div>
 
         <input
@@ -51,8 +54,8 @@ const Products = () => {
           className="search-box"
         />
 
-        <div className="top-links" onClick={ () => navigate("/cart") }>
-          <span>🛒 Cart</span>
+        <div className="top-links" >
+          <span onClick={() => navigate("/cart")} >🛒 Cart</span>
           <span>👤 Profile</span>
         </div>
       </header>

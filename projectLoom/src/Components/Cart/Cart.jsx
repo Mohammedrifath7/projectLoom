@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Cart = () => {
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
@@ -46,12 +50,11 @@ const Cart = () => {
 
       {/* Header */}
       <header className="cart-header">
-        <div className="logo">
-          <img src="/asset/logo.png" alt="logo" />
-          <div>
-            <h1>PowerLoom</h1>
-            <p>Spares Hub</p>
-          </div>
+        <div className="logo" onClick={() => navigate("/products")}>
+          <h1 className="logo-title">
+            POWER<span>LOOM</span>
+          </h1>
+          <p className="logo-sub">SPARES HUB</p>
         </div>
 
         <input
@@ -61,7 +64,7 @@ const Cart = () => {
         />
 
         <div className="actions">
-          <span>🛒 Cart ({cartItems.length})</span>
+          <span >🛒 Cart ({cartItems.length})</span>
           <span>👤 Profile</span>
         </div>
       </header>
@@ -137,11 +140,11 @@ const Cart = () => {
             <span>₹{total.toLocaleString()}</span>
           </div>
 
-          <button className="checkout-btn">
+          <button className="checkout-btn" onClick={() => navigate("/checkout")}>
             Proceed to Checkout
           </button>
 
-          <p className="continue">Continue Shopping</p>
+          <p className="continue"  onClick={() => navigate("/products")} >Continue Shopping</p>
         </div>
 
       </div>
