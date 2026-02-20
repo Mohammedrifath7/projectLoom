@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Products.css";
+
+
 
 const products = [
   { id: 1, name: "airjet dobby connector", price: "₹4,500", img: "asset/airjet dobby connector.jpg" },
@@ -10,7 +13,7 @@ const products = [
   { id: 6, name: "picker ring", price: "₹4,500", img: "asset/picker ring_.jpg" },
   { id: 7, name: "Plastic Upper Cord M5", price: "₹4,500", img: "asset/Plastic Upper Cord M5.jpg" },
   { id: 8, name: "powerloom gear", price: "₹3,750", img: "asset/powerlooms-gear-40-t-2f-80-t-500x500.jpg" },
-  { id: 9, name: "product jpeg", price: "₹4,500", img: "asset/product-jpeg-500x500.jpg" },
+  { id: 9, name: "Jaquard Loom", price: "₹4,500", img: "asset/product-jpeg-500x500.jpg" },
   { id: 10, name: "teeth face gear", price: "₹4,500", img: "asset/teeth face gear.jpg" },
   { id: 11, name: "weft selector", price: "₹4,500", img: "asset/weft-selector-500x500.jpg" },
   { id: 12, name: "Wire Heald", price: "₹4,500", img: "asset/Wire Heald.jpg" },
@@ -24,6 +27,7 @@ const PRODUCTS_PER_PAGE = 8;
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
 
@@ -47,7 +51,7 @@ const Products = () => {
           className="search-box"
         />
 
-        <div className="top-links">
+        <div className="top-links" onClick={ () => navigate("/cart") }>
           <span>🛒 Cart</span>
           <span>👤 Profile</span>
         </div>
@@ -89,11 +93,11 @@ const Products = () => {
         {/* Products */}
         <main className="product-grid">
           {currentProducts.map((item) => (
-            <div key={item.id} className="product-card">
+            <div key={item.id} className="product-card"  onClick={() => navigate(`/product/${item.id}`)}>
               <img src={item.img} alt={item.name} />
               <h4>{item.name}</h4>
               <p>{item.price}</p>
-              <button>Add to Cart</button>
+              <button onClick={(e) => e.stopPropagation()}>Add to Cart</button>
             </div>
           ))}
         </main>
